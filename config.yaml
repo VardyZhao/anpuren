@@ -1,0 +1,28 @@
+appName: kafka-consumer
+env: local
+version: 1.0.0
+kafka:
+  bootstrapServers: 127.0.0.1:9092
+  consumers:
+    - topic: "test1"
+      name: "topicConsumer1"
+      group: "group1"
+      retryTopic: "retry_topic1"
+      retryMaxTimes: 3
+      processTimeout: 1000
+      deadLetterTopic: "dlq_topic1"
+      handler: "test1Handler"
+      partitions: 2
+      autoCommit: false
+      autoCommitInterval: 0
+    - topic: "topic2"
+      name: "topicConsumer2"
+      group: "group2"
+      retryTopic: "retry_topic2"
+      retryMaxTimes: 3
+      processTimeout: 1000
+      deadLetterTopic: "dlq_topic2"
+      handler: "test2Handler"
+      partitions: 2
+      autoCommit: false
+      autoCommitInterval: 0
